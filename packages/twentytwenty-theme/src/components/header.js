@@ -7,23 +7,37 @@ import MobileSearchButton from "./mobile/search-button";
 import MobileMenuButton from "./mobile/menu-button";
 import MobileMenuModal from "./mobile/menu-modal";
 
+
+
 const Header = ({ state }) => {
   const { title, description } = state.frontity;
   const { headerBg } = state.theme.colors;
 
   return (
+   
     <PageHeader bg={headerBg} id="site-header">
-      <HeaderInner>
+      
+      <HeaderInner>    
+      <StyledLink link="/">
+ 
+
+     
+     </StyledLink>
+
+     
         <TitleWrapper>
           {/* Search button on mobile */}
           {state.theme.showSearchInHeader && <MobileSearchButton />}
 
           {/* Heading and Description of the site */}
           <TitleGroup>
+          <StyledLink link="/">
+                    <img src={"https://i0.wp.com/www.shongshoy.com/wp-content/uploads/2021/02/shongshoy_new_Logo_320.png"} alt="Logo" />
+                    </StyledLink>
             <SiteTitle>
-              <StyledLink link="/">{title}</StyledLink>
+            
             </SiteTitle>
-            <SiteDescription>{description}</SiteDescription>
+          
           </TitleGroup>
 
           {/* Mobile menu button and modal */}
@@ -41,6 +55,8 @@ const Header = ({ state }) => {
       {/* Global search modal */}
       <SearchModal />
     </PageHeader>
+   
+
   );
 };
 
@@ -100,6 +116,7 @@ const SiteTitle = styled.h1`
   font-weight: 600;
   line-height: 1;
   margin: 0;
+  display: none;
 
   @media (min-width: 1000px) {
     margin: 1rem 0 0 2.4rem;
@@ -111,11 +128,12 @@ const SiteTitle = styled.h1`
 `;
 
 const SiteDescription = styled.div`
-  margin: 0;
+
+margin: 0;
   margin-top: 1rem;
-  color: #6d6d6d;
+  
   font-size: 1.8rem;
-  font-weight: 500;
+  
   display: none;
   letter-spacing: -0.0311em;
   transition: all 0.15s linear;
@@ -147,3 +165,5 @@ const HeaderNavigationWrapper = styled.div`
     display: flex;
   }
 `;
+
+
