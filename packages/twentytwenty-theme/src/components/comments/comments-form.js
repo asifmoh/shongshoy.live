@@ -6,6 +6,8 @@ const CommentsForm = ({ actions, state, postId }) => {
   const form = state.comments.forms[postId];
   return (
     <>
+ <Container>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -25,11 +27,12 @@ const CommentsForm = ({ actions, state, postId }) => {
             }
             value={state.comments.forms[postId]?.fields?.content || ""}
           />
+        
           {/* Show the errors for the individual fields.
             E.g. content of a comment cannot be empty and the email must be valid */}
           {form?.errors?.content}
         </label>
-
+  
         <label>
           Name:
           <input
@@ -44,6 +47,7 @@ const CommentsForm = ({ actions, state, postId }) => {
           {form?.errors?.authorName}
         </label>
 
+
         <label>
           Email:
           <input
@@ -57,7 +61,7 @@ const CommentsForm = ({ actions, state, postId }) => {
           />
           {form?.errors?.authorEmail}
         </label>
-
+        
         {/* Show the REST API error messages.
             E.g. "Sorry, you must be logged in to comment." */}
         {form?.errorMessage && <div>ERROR: {form?.errorMessage}</div>}
@@ -69,9 +73,22 @@ const CommentsForm = ({ actions, state, postId }) => {
 
         <input type="submit" />
       </form>
+      </Container>
+
     </>
   );
 };
 
 
 export default connect(CommentsForm);
+
+const Container = styled.div`
+background-color: #4285F4;
+padding-left:30px;
+padding-right:30px;
+padding-top:30px;
+padding-bottom:50px;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+  
+`;

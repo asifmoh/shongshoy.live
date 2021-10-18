@@ -1,4 +1,5 @@
 {
+  "homepage": "http://yuribenjamin.github.io/shongshoy.live",
   "name": "shongshoy.live",
   "version": "1.0.0",
   "private": true,
@@ -11,6 +12,8 @@
     "npm": ">=6.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "frontity dev",
     "build": "frontity build",
     "serve": "frontity serve"
@@ -18,11 +21,17 @@
   "prettier": {},
   "dependencies": {
     "@frontity/core": "^1.14.3",
+    "@frontity/head-tags": "^1.1.1",
     "@frontity/html2react": "^1.7.0",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/twentytwenty-theme": "./packages/twentytwenty-theme",
     "@frontity/wp-comments": "^1.0.0",
     "@frontity/wp-source": "^1.11.6",
-    "frontity": "^1.17.1"
+    "bootstrap": "^5.1.3",
+    "frontity": "^1.17.1",
+    "react-bootstrap": "^1.6.4"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
